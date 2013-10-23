@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		695ACA2718182DAF00CF1500 /* CArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 695ACA2418182DAF00CF1500 /* CArray.m */; };
 		695ACA2818182DAF00CF1500 /* IGDSPFFT.m in Sources */ = {isa = PBXBuildFile; fileRef = 695ACA2618182DAF00CF1500 /* IGDSPFFT.m */; };
-		695ACA2B1818327800CF1500 /* IGDSPSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 695ACA2A1818327800CF1500 /* IGDSPSample.m */; };
+		695ACA2B1818327800CF1500 /* IGDSPSamplePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 695ACA2A1818327800CF1500 /* IGDSPSamplePool.m */; };
 		695ACA2E1818331500CF1500 /* IGDSPBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 695ACA2D1818331500CF1500 /* IGDSPBase.m */; };
 		695ACA311818372800CF1500 /* IGDSPFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 695ACA301818372800CF1500 /* IGDSPFilter.m */; };
 		698BE1DB18182C9B0070A12C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698BE1DA18182C9B0070A12C /* Foundation.framework */; };
@@ -26,8 +26,8 @@
 		695ACA2418182DAF00CF1500 /* CArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CArray.m; sourceTree = "<group>"; };
 		695ACA2518182DAF00CF1500 /* IGDSPFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDSPFFT.h; sourceTree = "<group>"; };
 		695ACA2618182DAF00CF1500 /* IGDSPFFT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDSPFFT.m; sourceTree = "<group>"; };
-		695ACA291818327800CF1500 /* IGDSPSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDSPSample.h; sourceTree = "<group>"; };
-		695ACA2A1818327800CF1500 /* IGDSPSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDSPSample.m; sourceTree = "<group>"; };
+		695ACA291818327800CF1500 /* IGDSPSamplePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDSPSamplePool.h; sourceTree = "<group>"; };
+		695ACA2A1818327800CF1500 /* IGDSPSamplePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDSPSamplePool.m; sourceTree = "<group>"; };
 		695ACA2C1818331500CF1500 /* IGDSPBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDSPBase.h; sourceTree = "<group>"; };
 		695ACA2D1818331500CF1500 /* IGDSPBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDSPBase.m; sourceTree = "<group>"; };
 		695ACA2F1818372800CF1500 /* IGDSPFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDSPFilter.h; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 				695ACA2418182DAF00CF1500 /* CArray.m */,
 				695ACA2518182DAF00CF1500 /* IGDSPFFT.h */,
 				695ACA2618182DAF00CF1500 /* IGDSPFFT.m */,
-				695ACA291818327800CF1500 /* IGDSPSample.h */,
-				695ACA2A1818327800CF1500 /* IGDSPSample.m */,
+				695ACA291818327800CF1500 /* IGDSPSamplePool.h */,
+				695ACA2A1818327800CF1500 /* IGDSPSamplePool.m */,
 				695ACA2C1818331500CF1500 /* IGDSPBase.h */,
 				695ACA2D1818331500CF1500 /* IGDSPBase.m */,
 				695ACA2F1818372800CF1500 /* IGDSPFilter.h */,
@@ -196,7 +196,7 @@
 				698BE1E718182C9C0070A12C /* main.m in Sources */,
 				695ACA2718182DAF00CF1500 /* CArray.m in Sources */,
 				695ACA311818372800CF1500 /* IGDSPFilter.m in Sources */,
-				695ACA2B1818327800CF1500 /* IGDSPSample.m in Sources */,
+				695ACA2B1818327800CF1500 /* IGDSPSamplePool.m in Sources */,
 				695ACA2E1818331500CF1500 /* IGDSPBase.m in Sources */,
 				695ACA2818182DAF00CF1500 /* IGDSPFFT.m in Sources */,
 			);

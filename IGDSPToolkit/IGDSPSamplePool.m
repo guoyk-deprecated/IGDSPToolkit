@@ -1,11 +1,11 @@
 //
-//  IGSample.m
+//  IGSamplePool.m
 //  IGDSPToolkitDemo
 //
 //  Created by IREUL Guo on 10/24/13.
 //
 
-#import "IGDSPSample.h"
+#import "IGDSPSamplePool.h"
 
 IGSamplePool    IGSamplePoolCreate(int capacity,float sample_rate,IGSamplePoolType type)
 {
