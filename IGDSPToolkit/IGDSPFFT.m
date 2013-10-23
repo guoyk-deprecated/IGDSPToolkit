@@ -1,11 +1,11 @@
 //
-//  IGFFT.m
+//  IGDSPFFT.m
 //
 //  Created by IREUL Guo on 10/23/13.
 //  Copyright (c) 2013 IREUL Guo. All rights reserved.
 //
 
-#import "IGFFT.h"
+#import "IGDSPFFT.h"
 
 IGFFTs      IGFFTsSetup                 (int sample_count,int sample_rate)
 {
