@@ -37,3 +37,8 @@ void IGSimpleLowPassFilter(IGSimpleLowPassFilterRef ref,float* value)
 	ref->last_high_value = high_value;
     *value = low_value;
 }
+
+void IGSimpleLowPassFilterRelease(IGSimpleLowPassFilterRef ref)
+{
+    free(ref);
+}
