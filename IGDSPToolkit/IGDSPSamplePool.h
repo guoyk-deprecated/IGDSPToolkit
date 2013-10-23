@@ -14,21 +14,23 @@ typedef enum {
 
 typedef struct {
     CArray * buffer;
-    IGFFTs * fft;
+    IGFFTsRef fft;
     float sample_rate;
     IGSamplePoolType type;
 } IGSamplePool;
 
-IGSamplePool    IGSamplePoolCreate(int capacity,float sample_rate,IGSamplePoolType type);
-void            IGSamplePoolRelease(IGSamplePool pool);
+typedef IGSamplePool *IGSamplePoolRef;
 
-int             IGSamplePoolGetSize(IGSamplePool pool);
-float           IGSamplePoolGetTotalTime(IGSamplePool pool);
-int             IGSamplePoolGetCapacity(IGSamplePool pool);
-void            IGSamplePoolAdd(IGSamplePool pool,float value);
+void    IGSamplePoolCreate                  (IGSamplePoolRef pool, int capacity,float sample_rate,IGSamplePoolType type);
+void    IGSamplePoolRelease                 (IGSamplePoolRef pool);
 
-int             IGSamplePoolInitializeFFTs(IGSamplePool pool);
-float           IGSamplePoolGetMaxFFTFrequency(IGSamplePool pool);
-float           IGSamplePoolGetZeroReverseFrequency(IGSamplePool pool,bool direction);
-float           IGSamplePoolGetThresholdFrequency(IGSamplePool pool,float threshold,bool direction);
-float           IGSamplePoolGetAverage(IGSamplePool pool);
+int     IGSamplePoolGetSize                 (IGSamplePoolRef pool);
+float   IGSamplePoolGetTotalTime            (IGSamplePoolRef pool);
+int     IGSamplePoolGetCapacity             (IGSamplePoolRef pool);
+void    IGSamplePoolAdd                     (IGSamplePoolRef pool,float value);
+
+int     IGSamplePoolInitializeFFTs          (IGSamplePoolRef pool);
+float   IGSamplePoolGetMaxFFTFrequency      (IGSamplePoolRef pool);
+float   IGSamplePoolGetZeroReverseFrequency (IGSamplePoolRef pool,bool direction);
+float   IGSamplePoolGetThresholdFrequency   (IGSamplePoolRef pool,float threshold,bool direction);
+float   IGSamplePoolGetAverage              (IGSamplePoolRef pool);
