@@ -82,13 +82,24 @@ float           IGSamplePoolGetMaxFFTFrequency(IGSamplePool pool)
     return hf;
 }
 
-float           IGSamplePoolGetZeroReverseFrequency(IGSamplePool pool)
+float           IGSamplePoolGetZeroReverseFrequency(IGSamplePool pool,bool direction)
+{
+    return IGSamplePoolGetThresholdFrequency(pool, 0, direction);
+}
+
+float           IGSamplePoolGetThresholdFrequency(IGSamplePool pool,float threshold,bool direction)
 {
     float last = 0.f;
     int count = 0;
     CArrayFor(float*, value, pool.buffer) {
-        if (last < 0 && *value >= 0) {
-            count ++;
+        if (direction) {
+            if (last < threshold && *value >= threshold) {
+                count ++;
+            }
+        } else {
+            if (last > threshold && *value <= threshold) {
+                count ++;
+            }
         }
         last = *value;
     }
