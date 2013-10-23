@@ -94,3 +94,12 @@ float           IGSamplePoolGetZeroReverseFrequency(IGSamplePool pool)
     }
     return ((float)count) / IGSamplePoolGetTotalTime(pool);
 }
+
+float           IGSamplePoolGetAverage(IGSamplePool pool)
+{
+    float value = 0;
+    CArrayFor(float*, v, pool.buffer) {
+        value += *v;
+    }
+    return value / IGSamplePoolGetSize(pool);
+}

@@ -30,3 +30,4 @@ void            IGSamplePoolAdd(IGSamplePool pool,float value);
 int             IGSamplePoolInitializeFFTs(IGSamplePool pool);
 float           IGSamplePoolGetMaxFFTFrequency(IGSamplePool pool);
 float           IGSamplePoolGetZeroReverseFrequency(IGSamplePool pool);
+float           IGSamplePoolGetAverage(IGSamplePool pool);
