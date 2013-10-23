@@ -6,3 +6,69 @@
 //
 
 #import "IGDSPSample.h"
+
+IGSamplePool    IGSamplePoolCreate(int capacity,float sample_rate,IGSamplePoolType type)
+{
+    IGSamplePool pool = {
+        .buffer = CArrayNew(capacity, sizeof(float)),
+        .type = type,
+        .sample_rate = sample_rate,
+        .fft = NULL
+    };
+    return pool;
+}
+
+
+void            IGSamplePoolRelease(IGSamplePool pool)
+{
+    CArrayDelete(pool.buffer);
+}
+
+void            IGSamplePoolAdd(IGSamplePool pool,float value)
+{
+    if (pool.type == IGSamplePoolTypeFixedLength && pool.buffer->count == pool.buffer->capacity) {
+        CArrayRemoveElement(pool.buffer, CArrayElement(pool.buffer, 0));
+    }
+    CArrayAddElement(pool.buffer, &value);
+}
+
+int             IGSamplePoolGetSize(IGSamplePool pool)
+{
+    return pool.buffer->count;
+}
+
+int             IGSamplePoolGetCapacity(IGSamplePool pool)
+{
+    return pool.buffer->capacity;
+}
+
+int             IGSamplePoolInitializeFFTs(IGSamplePool pool)
+{
+    if (pool.type != IGSamplePoolTypeFixedLength) {
+        printf("[IGDSP][ERROR]: IGFFTs can only be created from a fix length sample pool");
+        return 1;
+    }
+    IGFFTs fft = IGFFTsSetup(pool.buffer->capacity, pool.sample_rate);
+    pool.fft = &fft;
+    return 0;
+}
+
+float           IGSamplePoolGetMaxFFTFrequency(IGSamplePool pool)
+{
+    if (pool.fft == NULL &&  IGSamplePoolInitializeFFTs(pool) != 0) {
+        return 0.f;
+    }
+    IGFFTs fft = *pool.fft;
+    IGFFTsData data = IGFFTsCreateData(fft);
+    IGFFTsFillDataWithCArray(fft, pool.buffer, data);
+    IGFFTsComputeReal1D(fft, data, YES);
+    __block float hf = 0;
+    __block float hv = 0;
+    IGFFTsEnumerateResult(fft, data, ^(int position, float frequency, float strength) {
+        if (strength > hv) {
+            hv = strength;
+            hf = frequency;
+        }
+    });
+    return hf;
+}
