@@ -6,15 +6,15 @@
 
 #import "IGDSPFFT.h"
 
-void        IGFFTsSetup             (IGFFTsRef ref, int sample_count,int sample_rate)
+IGFFTsRef   IGFFTsSetup             (int sample_count,int sample_rate)
 {
-    IGFFTs fft;
-    fft.samples = sample_count;
-    fft.rate = sample_rate;
-    fft.samples_over2 = sample_count/2;
-    fft.log2samples = round(log2(sample_count));
-    fft.setup = vDSP_create_fftsetup(fft.log2samples,kFFTRadix2);
-    *ref = fft;
+    IGFFTsRef ref = malloc(sizeof(IGFFTs));
+    ref->samples = sample_count;
+    ref->rate = sample_rate;
+    ref->samples_over2 = sample_count/2;
+    ref->log2samples = round(log2(sample_count));
+    ref->setup = vDSP_create_fftsetup(ref->log2samples,kFFTRadix2);
+    return ref;
 }
 
 void        IGFFTsRelease           (IGFFTsRef ref)

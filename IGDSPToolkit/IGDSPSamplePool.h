@@ -21,7 +21,7 @@ typedef struct {
 
 typedef IGSamplePool *IGSamplePoolRef;
 
-void    IGSamplePoolCreate                  (IGSamplePoolRef pool, int capacity,float sample_rate,IGSamplePoolType type);
+IGSamplePoolRef    IGSamplePoolCreate       (int capacity,float sample_rate,IGSamplePoolType type);
 void    IGSamplePoolRelease                 (IGSamplePoolRef pool);
 
 int     IGSamplePoolGetSize                 (IGSamplePoolRef pool);

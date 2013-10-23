@@ -6,15 +6,14 @@
 
 #import "IGDSPSamplePool.h"
 
-void    IGSamplePoolCreate(IGSamplePoolRef pool, int capacity,float sample_rate,IGSamplePoolType type)
+IGSamplePoolRef    IGSamplePoolCreate       (int capacity,float sample_rate,IGSamplePoolType type)
 {
-    IGSamplePool p = {
-        .buffer = CArrayNew(capacity, sizeof(float)),
-        .type = type,
-        .sample_rate = sample_rate,
-        .fft = NULL
-    };
-    *pool = p;
+    IGSamplePoolRef pool = malloc(sizeof(IGSamplePool));
+    pool->buffer = CArrayNew(capacity, sizeof(float));
+    pool->type = type;
+    pool->sample_rate = sample_rate;
+    pool->fft = NULL;
+    return pool;
 }
 
 
@@ -56,7 +55,7 @@ int     IGSamplePoolInitializeFFTs          (IGSamplePoolRef pool)
         printf("[IGDSP][ERROR]: IGFFTs can only be created from a fix length sample pool");
         return 1;
     }
-    IGFFTsSetup(pool->fft,pool->buffer->capacity, pool->sample_rate);
+    pool->fft = IGFFTsSetup(pool->buffer->capacity, pool->sample_rate);
     return 0;
 }
 

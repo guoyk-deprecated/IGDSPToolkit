@@ -25,7 +25,7 @@ typedef COMPLEX_SPLIT IGFFTsData;
 typedef void (^IGFFTsResultEnumeratorBlock)(int position,float frequency,float strength);
 
 //Create a IGFFTs struct
-void        IGFFTsSetup             (IGFFTsRef ref, int sample_count,int sample_rate);
+IGFFTsRef   IGFFTsSetup             (int sample_count,int sample_rate);
 
 //Release IGFFTs struct
 void        IGFFTsRelease           (IGFFTsRef ref);
