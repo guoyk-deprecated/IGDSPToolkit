@@ -22,6 +22,9 @@ IGSamplePool    IGSamplePoolCreate(int capacity,float sample_rate,IGSamplePoolTy
 void            IGSamplePoolRelease(IGSamplePool pool)
 {
     CArrayDelete(pool.buffer);
+    if (pool.fft != NULL) {
+        IGFFTsRelease(*pool.fft);
+    }
 }
 
 void            IGSamplePoolAdd(IGSamplePool pool,float value)
@@ -40,6 +43,12 @@ int             IGSamplePoolGetSize(IGSamplePool pool)
 int             IGSamplePoolGetCapacity(IGSamplePool pool)
 {
     return pool.buffer->capacity;
+}
+
+
+float           IGSamplePoolGetTotalTime(IGSamplePool pool)
+{
+    return IGSamplePoolGetSize(pool) / pool.sample_rate;
 }
 
 int             IGSamplePoolInitializeFFTs(IGSamplePool pool)
@@ -70,5 +79,19 @@ float           IGSamplePoolGetMaxFFTFrequency(IGSamplePool pool)
             hf = frequency;
         }
     });
+    IGFFTsReleaseData(data);
     return hf;
+}
+
+float           IGSamplePoolGetZeroReverseFrequency(IGSamplePool pool)
+{
+    float last = 0.f;
+    int count = 0;
+    CArrayFor(float*, value, pool.buffer) {
+        if (last < 0 && *value >= 0) {
+            count ++;
+        }
+        last = *value;
+    }
+    return ((float)count) / IGSamplePoolGetTotalTime(pool);
 }

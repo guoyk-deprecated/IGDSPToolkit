@@ -24,6 +24,7 @@ IGSamplePool    IGSamplePoolCreate(int capacity,float sample_rate,IGSamplePoolTy
 void            IGSamplePoolRelease(IGSamplePool pool);
 
 int             IGSamplePoolGetSize(IGSamplePool pool);
+float           IGSamplePoolGetTotalTime(IGSamplePool pool);
 int             IGSamplePoolGetCapacity(IGSamplePool pool);
 void            IGSamplePoolAdd(IGSamplePool pool,float value);
 
