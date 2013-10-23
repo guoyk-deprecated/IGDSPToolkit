@@ -7,7 +7,7 @@ IGDSP is a simple DSP toolkit for Objective-C.
 
 ## License
 
-IGDSP Toolkit contains two license, MIT License for my codes, Apache License for `CArray` created by Tyler Neylon [https://github.com/tylerneylon/moriarty]
+IGDSP Toolkit contains two license, MIT License for my codes, Apache License 2.0 for `CArray` created by Tyler Neylon [https://github.com/tylerneylon/moriarty]
 
     IGDSPToolkit
     The MIT License (MIT)
@@ -30,6 +30,7 @@ IGDSP Toolkit contains two license, MIT License for my codes, Apache License for
     COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
     IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 
                                      Apache License
