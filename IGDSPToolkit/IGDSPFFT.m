@@ -2,7 +2,6 @@
 //  IGDSPFFT.m
 //
 //  Created by IREUL Guo on 10/23/13.
-//  Copyright (c) 2013 IREUL Guo. All rights reserved.
 //
 
 #import "IGDSPFFT.h"

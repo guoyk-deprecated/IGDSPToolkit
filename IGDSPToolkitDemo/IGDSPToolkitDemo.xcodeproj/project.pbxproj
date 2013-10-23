@@ -32,6 +32,7 @@
 		695ACA2D1818331500CF1500 /* IGDSPBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDSPBase.m; sourceTree = "<group>"; };
 		695ACA2F1818372800CF1500 /* IGDSPFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDSPFilter.h; sourceTree = "<group>"; };
 		695ACA301818372800CF1500 /* IGDSPFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDSPFilter.m; sourceTree = "<group>"; };
+		695ACA4218184A1B00CF1500 /* IGDSPToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGDSPToolkit.h; sourceTree = "<group>"; };
 		698BE1D718182C9B0070A12C /* IGDSPToolkitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGDSPToolkitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		698BE1DA18182C9B0070A12C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		698BE1DC18182C9B0070A12C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +125,7 @@
 				695ACA2D1818331500CF1500 /* IGDSPBase.m */,
 				695ACA2F1818372800CF1500 /* IGDSPFilter.h */,
 				695ACA301818372800CF1500 /* IGDSPFilter.m */,
+				695ACA4218184A1B00CF1500 /* IGDSPToolkit.h */,
 			);
 			name = IGDSPToolkit;
 			path = ../IGDSPToolkit;

@@ -1,8 +1,7 @@
 //
 //  IGDSPFilter.m
-//  IGDSPToolkitDemo
 //
-//  Created by YANKE Guo on 10/24/13.
+//  Created by IREUL Guo on 10/24/13.
 //
 
 #import "IGDSPFilter.h"

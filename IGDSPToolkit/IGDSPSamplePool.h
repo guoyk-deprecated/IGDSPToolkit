@@ -1,6 +1,5 @@
 //
 //  IGSamplePool.h
-//  IGDSPToolkitDemo
 //
 //  Created by IREUL Guo on 10/24/13.
 //
