@@ -54,5 +54,5 @@ typedef IGSamplePoolThresholdTrigger * IGSamplePoolThresholdTriggerRef;
 
 bool    IGSamplePoolThresholdTriggerIsTriggered (IGSamplePoolThresholdTriggerRef ref,float first_value,float last_value);
 
-IGSamplePoolThresholdTriggerRef IGSamplePoolCreateThresholdTriggerRef (IGSamplePoolRef pool,float threshold,IGValueDirection direction);
+IGSamplePoolThresholdTriggerRef IGSamplePoolThresholdTriggerCreateRef (float threshold,IGValueDirection direction);
 void    IGSamplePoolExecuteThresholdTrigger (IGSamplePoolRef pool,IGSamplePoolThresholdTriggerRef ref);

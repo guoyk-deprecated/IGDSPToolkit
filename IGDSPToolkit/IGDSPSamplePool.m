@@ -151,7 +151,7 @@ void    IGSamplePoolEnumerateWithBlock      (IGSamplePoolRef pool,IGValueDirecti
     }
 }
 
-IGSamplePoolThresholdTriggerRef IGSamplePoolCreateThresholdTriggerRef (IGSamplePoolRef pool,float threshold,IGValueDirection direction)
+IGSamplePoolThresholdTriggerRef IGSamplePoolThresholdTriggerCreateRef (float threshold,IGValueDirection direction)
 {
     IGSamplePoolThresholdTriggerRef ref = malloc(sizeof(IGSamplePoolThresholdTrigger)) ;
     ref->triggered_absolute_position = 0.f;
