@@ -131,7 +131,8 @@ void    IGSamplePoolEnumerateWithBlock      (IGSamplePoolRef pool,IGValueDirecti
         position = 0;
         CArrayFor(float *, value, pool->buffer) {
             long abs_position = (pool->frame_base_absolute_position + position);
-            __block bool * stop = NULL;
+            __block bool * stop = malloc(sizeof(bool));
+            *stop = false;
             block(abs_position,abs_position * IGSamplePoolGetFrameIntervalTime(pool),value,stop);
             if (*stop) {
                 break;
@@ -142,7 +143,8 @@ void    IGSamplePoolEnumerateWithBlock      (IGSamplePoolRef pool,IGValueDirecti
         CArrayForBackwards(float *, value, pool->buffer) {
             position --;
             long abs_position = (pool->frame_base_absolute_position + position);
-            __block bool * stop = NULL;
+            __block bool * stop = malloc(sizeof(bool));
+            *stop = false;
             block(abs_position,abs_position * IGSamplePoolGetFrameIntervalTime(pool),value,stop);
             if (*stop) {
                 break;
@@ -190,12 +192,13 @@ void    IGSamplePoolExecuteThresholdTrigger (IGSamplePoolRef pool,IGSamplePoolTh
                     ref->triggered_absolute_position = first_abs_position + (IGSamplePoolGetFrameIntervalTime(pool) * abs1 / (abs1 + abs2));
                     //
                     ref->triggered = true;
-                    return;
+                    *stop = true;
+                } else {
+                    ref->triggered = false;
                 }
             }
             last_value = *first_value;
             last_abs_position = first_abs_position;
         }
     });
-    ref->triggered = false;
 }
