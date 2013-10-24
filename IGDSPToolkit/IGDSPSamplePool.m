@@ -155,7 +155,6 @@ IGSamplePoolThresholdTriggerRef IGSamplePoolThresholdTriggerCreateRef (float thr
 {
     IGSamplePoolThresholdTriggerRef ref = malloc(sizeof(IGSamplePoolThresholdTrigger)) ;
     ref->triggered_absolute_position = 0.f;
-    ref->last_triggered_absolute_position = 0.f;
     ref->threshold = threshold;
     ref->direction = direction;
     return ref;
@@ -185,7 +184,6 @@ void    IGSamplePoolExecuteThresholdTrigger (IGSamplePoolRef pool,IGSamplePoolTh
         } else {
             if (!isnan(last_abs_position)) {
                 if (IGSamplePoolThresholdTriggerIsTriggered(ref, *first_value, last_value)) {
-                    ref->last_triggered_absolute_position = ref->triggered_absolute_position;
                     //
                     float abs1 = fabsf((*first_value - ref->threshold));
                     float abs2 = fabsf((last_value - ref->threshold));

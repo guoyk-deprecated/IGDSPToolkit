@@ -44,7 +44,6 @@ void    IGSamplePoolEnumerateWithBlock      (IGSamplePoolRef pool,IGValueDirecti
 
 typedef struct {
     double triggered_absolute_position;
-    double last_triggered_absolute_position;
     float threshold;
     IGValueDirection direction;
     bool triggered;
